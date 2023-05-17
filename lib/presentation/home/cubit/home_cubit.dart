@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:new_dart_arch/domain/repositories/todo_repository.dart';
 
 import '../../../../domain/entities/todo_entity.dart';
 import '../../../../domain/failutes/failure.dart';
+import '../../../domain/repositories/todo_repository.dart';
 
 part 'home_state.dart';
 
@@ -13,13 +13,13 @@ class HomeCubit extends Cubit<HomeState> {
     emit(LoadingHomeState());
 
     final TodoRepository repo = TodoRepositoryImpl();
-    var (failure, todo) = await repo.getAllTodo();
+    var (failure, todos) = await repo.getAllTodo();
     if (failure != null) {
       return emit(ErrorHomeState(failure));
     }
-    if (todo == null) {
+    if (todos == null) {
       return emit(InitialHomeState());
     }
-    emit(LoadedHomeState(todo));
+    emit(LoadedHomeState(todos));
   }
 }

@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:new_dart_arch/data/api/todo_api.dart';
-import 'package:new_dart_arch/domain/entities/todo_entity.dart';
-import 'package:new_dart_arch/domain/failutes/failure.dart';
+import '../../data/api/todo_api.dart';
+import '../entities/todo_entity.dart';
+import '../failutes/failure.dart';
 
 abstract interface class TodoRepository {
   Future<(Failure?, List<TodoEntity>?)> getAllTodo();

@@ -1,4 +1,4 @@
-import 'package:new_dart_arch/domain/entities/todo_entity.dart';
+import '../../domain/entities/todo_entity.dart';
 
 base class TodoModel extends TodoEntity {
   TodoModel(super.id, super.title, super.isDone);

@@ -28,10 +28,7 @@ class _HomeBody extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return switch (state) {
-          InitialHomeState _ => const Center(
-              child: CircularProgressIndicator(),
-            ),
-          LoadingHomeState _ => const Center(
+          LoadingHomeState _ || InitialHomeState _ => const Center(
               child: CircularProgressIndicator(),
             ),
           LoadedHomeState s => Center(
